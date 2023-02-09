@@ -1,0 +1,12 @@
+import requests
+import pandas as pd
+
+def download_data(company):
+    url = f"https://finance.yahoo.com/quote/{company}/history?p={company}"
+    response = requests.get(url)
+    data = pd.read_html(response.text)[0]
+    return data
+
+companies = ["IBM", "AAPL", "GOOG", "MSFT", "AMZN"]
+
+dfs = [download_data(company) for company in companies]

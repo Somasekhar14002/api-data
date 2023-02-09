@@ -1,0 +1,26 @@
+ from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/api/stock_data", methods=["GET"])
+def get_stock_data():
+    date = request.args.get("date")
+    company = request.args.get("company")
+
+    if date and company:
+        # Get data for a particular company on a particular day
+        pass
+    elif date:
+        # Get data for all companies on a particular day
+        pass
+    elif company:
+        # Get data for a particular company
+        pass
+    else:
+        return "Error: Missing date or company parameters", 400
+
+@app.route("/api/stock_data", methods=["POST", "PATCH"])
+def update_stock_data():
+    # Update data for a particular company on a particular day
+    pass
+

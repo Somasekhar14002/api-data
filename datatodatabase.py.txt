@@ -1,0 +1,9 @@
+ import sqlite3
+
+conn = sqlite3.connect("stock_data.db")
+
+for company, df in zip(companies, dfs):
+    df.to_sql(company, conn, if_exists="replace")
+
+conn.close()
+
